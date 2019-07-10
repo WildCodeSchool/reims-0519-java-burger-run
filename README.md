@@ -9,7 +9,7 @@
 > Burger Run est un jeu qui consiste à déplacer un burger à l’intérieur d’un labyrinthe, afin de lui faire manger des steacks qui s’y trouvent, en évitant d’être touché par l'humain.
 
 ### 🏠 [Trello](https://trello.com/b/AyE9ETar/burger-run)
-### 🏠 [Wireframe](WIP)
+### 🏠 [Wireframe](https://image.noelshack.com/fichiers/2019/28/3/1562763492-wireframe-burger-run.jpeg)
 
 ## Author
 
@@ -29,4 +29,3 @@
 Give a ⭐️ if this project helped you!
 
 ***
-
