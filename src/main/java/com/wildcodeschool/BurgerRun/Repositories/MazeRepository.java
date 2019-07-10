@@ -44,4 +44,20 @@ public class MazeRepository {
     public boolean canGoLeft(int row, int col) {
         return maze.getMatrice()[row][col-1].equals("");
     }
+
+    public int[] getUp(int row, int col) {
+        return new int[] {row-1, col};
+    }
+
+    public int[] getDown(int row, int col) {
+        return new int[] {row+1, col};
+    }
+
+    public int[] getRight(int row, int col) {
+        return new int[] {row, col+1};
+    }
+
+    public int[] getLeft(int row, int col) {
+        return new int[] {row, col-1};
+    }
 }
