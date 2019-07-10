@@ -23,7 +23,7 @@
     src: local('Arcade Rounded'), url(../ARCADE_R.woff) format('woff');
 }
 
-/* --------------- COLOR FONT BURGER --------------- */
+/* --------------- COLOR BURGER --------------- */
 
 .color-salad {
     color: #6fc854;
@@ -44,7 +44,6 @@
 .color-steak {
     color: #b6673e;
 }
-
 
 /* --------------- GENERALE CONFIGURATION --------------- */
 
@@ -180,6 +179,8 @@ header ul li:nth-child(2):hover a {
     justify-content: center;
 }
 
+/* --------------- RANKING --------------- */ 
+
 table {
     width: 100%;
     height: 100%;
@@ -190,4 +191,44 @@ tr, td, th {
     padding: 30px;
 }
 
-/* --------------- RANKING --------------- */ 
+
+/* --------------- GAME --------------- */ 
+
+.command_board {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30px;
+    width: 50%;
+    margin-left: 25vw;
+}
+
+.command_board button {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border: thick double white;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.command_board button:hover {
+    background-color: white;
+    color: black;
+    transition: 0.5s;
+}
+
+.command_board button ion-icon {
+    height: 30px;
+    width: 30px;
+    margin-left: 10px;
+    margin-bottom: 4px;
+}
+
+.stat_board {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30px;
+    width: 50%;
+    margin-left: 25vw;
+}
