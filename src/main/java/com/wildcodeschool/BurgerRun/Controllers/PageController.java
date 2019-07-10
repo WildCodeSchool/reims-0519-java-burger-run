@@ -22,9 +22,9 @@ class PageController {
         return "game";
     }
 
-    @GetMapping("/leaderboard")
-    public String leaderboard(Model model) {
-        return "leaderboard";
+    @GetMapping("/ranking")
+    public String ranking(Model model) {
+        return "ranking";
     }
 
 }
