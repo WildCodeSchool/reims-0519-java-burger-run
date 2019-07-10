@@ -13,16 +13,16 @@
 
 ## Author
 
-👤 **Julien Risacher**
-👤 **Remy Trohel**
-👤 **Clement Bouakil**
-👤 **Sébastien Dupuis**
+- 👤 **Julien Risacher**
+- 👤 **Remy Trohel**
+- 👤 **Clement Bouakil**
+- 👤 **Sébastien Dupuis**
 
 * Github:
-	[Clement](https://github.com/clementbouakil)
-	[Remy](https://github.com/RemyTrohel)
-	[Julien](https://github.com/Julienri)
-	[Sébastien](https://github.com/Seb-Dupuis)
+	- [Clement](https://github.com/clementbouakil)
+	- [Remy](https://github.com/RemyTrohel)
+	- [Julien](https://github.com/Julienri)
+	- [Sébastien](https://github.com/Seb-Dupuis)
 
 ## Show your support
 
