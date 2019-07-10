@@ -28,4 +28,20 @@ public class MazeRepository {
         }
         maze.setMatrice(matrice);
     }
+
+    public boolean canGoUp(int row, int col) {
+        return maze.getMatrice()[row-1][col].equals("");
+    }
+
+    public boolean canGoDown(int row, int col) {
+        return maze.getMatrice()[row+1][col].equals("");
+    }
+
+    public boolean canGoRight(int row, int col) {
+        return maze.getMatrice()[row][col+1].equals("");
+    }
+
+    public boolean canGoLeft(int row, int col) {
+        return maze.getMatrice()[row][col-1].equals("");
+    }
 }
