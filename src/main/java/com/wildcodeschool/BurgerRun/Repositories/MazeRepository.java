@@ -22,27 +22,27 @@ public class MazeRepository {
             "E #   #",
             "#######"
         };
-        String[][] matrice = new String[size][];
+        String[][] matrix = new String[size][];
         for (int i = 0; i < size; i++) {
-            matrice[i] = strings[i].split("");
+            matrix[i] = strings[i].split("");
         }
-        maze.setMatrice(matrice);
+        maze.setMatrix(matrix);
     }
 
     public boolean canGoUp(int row, int col) {
-        return maze.getMatrice()[row-1][col].equals("");
+        return maze.getMatrix()[row-1][col].equals("");
     }
 
     public boolean canGoDown(int row, int col) {
-        return maze.getMatrice()[row+1][col].equals("");
+        return maze.getMatrix()[row+1][col].equals("");
     }
 
     public boolean canGoRight(int row, int col) {
-        return maze.getMatrice()[row][col+1].equals("");
+        return maze.getMatrix()[row][col+1].equals("");
     }
 
     public boolean canGoLeft(int row, int col) {
-        return maze.getMatrice()[row][col-1].equals("");
+        return maze.getMatrix()[row][col-1].equals("");
     }
 
     public int[] getUp(int row, int col) {

@@ -1,15 +1,15 @@
 package com.wildcodeschool.BurgerRun.Entities;
 
 public class Maze {
-    private String[][] matrice;
+    private String[][] matrix;
     private int size = 7;
 
-    public String[][] getMatrice() {
-        return matrice;
+    public String[][] getMatrix() {
+        return matrix;
     }
 
-    public void setMatrice(String[][] matrice) {
-        this.matrice = matrice;
+    public void setMatrix(String[][] matrix) {
+        this.matrix = matrix;
     }
 
     public int getSize() {
@@ -20,6 +20,6 @@ public class Maze {
         this.size = size;
     }
     public Maze() {
-        this.matrice = new String[size][size];
+        this.matrix = new String[size][size];
     }
 }
