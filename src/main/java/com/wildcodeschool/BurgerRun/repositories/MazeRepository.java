@@ -11,51 +11,46 @@ public class MazeRepository {
     }
 
     public void initMaze() {
-        int size = maze.getSize();
-        String[] strings = {
-            "#######",
-            "#   # S",
-            "# # # #",
-            "# # # #",
-            "E #   #",
-            "#######"
-        };
-        String[][] matrix = new String[size][];
-        for (int i = 0; i < size; i++) {
-            matrix[i] = strings[i].split("");
-        }
-        maze.setMatrix(matrix);
+        String strings = 
+            "#######" +
+            "#   # S" +
+            "# # # #" +
+            "# # # #" +
+            "E #   #" +
+            "#######";
+        String[] cells = strings.split("");
+        maze.setCells(cells);
     }
 
-    public boolean canGoUp(int row, int col) {
-        return maze.getMatrix()[row-1][col].equals("");
+    public boolean canGoUp(int id) {
+        return maze.getCells()[id].equals("");
     }
 
-    public boolean canGoDown(int row, int col) {
-        return maze.getMatrix()[row+1][col].equals("");
+    public boolean canGoDown(int id) {
+        return maze.getCells()[id].equals("");
     }
 
-    public boolean canGoRight(int row, int col) {
-        return maze.getMatrix()[row][col+1].equals("");
+    public boolean canGoRight(int id) {
+        return maze.getCells()[id].equals("");
     }
 
-    public boolean canGoLeft(int row, int col) {
-        return maze.getMatrix()[row][col-1].equals("");
+    public boolean canGoLeft(int id) {
+        return maze.getCells()[id].equals("");
     }
 
-    public int[] getUp(int row, int col) {
-        return new int[] {row-1, col};
+    public int getUp(int id) {
+        return id - maze.getSize();
     }
 
-    public int[] getDown(int row, int col) {
-        return new int[] {row+1, col};
+    public int getDown(int id) {
+        return id + maze.getSize();
     }
 
-    public int[] getRight(int row, int col) {
-        return new int[] {row, col+1};
+    public int getRight(int id) {
+        return id + 1;
     }
 
-    public int[] getLeft(int row, int col) {
-        return new int[] {row, col-1};
+    public int getLeft(int id) {
+        return id - 1;
     }
 }
