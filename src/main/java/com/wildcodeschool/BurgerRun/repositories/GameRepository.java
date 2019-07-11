@@ -10,14 +10,26 @@ public class GameRepository {
     private Human human;
     private MazeRepository maze;
 
-    private static GameRepository getInstance() {
+    public static GameRepository getInstance() {
         if (instance == null) {
             instance = new GameRepository();
-            instance.burger = new Burger(null, 1, 1, 4, 0);
-            instance.maze = new MazeRepository();
+            instance.burger = new Burger(1, 5);
+            instance.maze = new MazeRepository(instance.getBurger().getIdBurger());
         }
         return instance;
     }
 
     private GameRepository() {}
+
+    public Burger getBurger() {
+        return burger;
+    }
+
+    public Human getHuman() {
+        return human;
+    }
+
+    public MazeRepository getMaze() {
+        return maze;
+    }
 }
