@@ -14,12 +14,12 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.wildcodeschool.BurgerRun.entities.ScoreBDD;
 
-public class steakScoreRepository {
+public class SteakScoreRepository {
     private final static String DB_URL = "";
     private final static String DB_USER = "root";
     private final static String DB_PASSWORD = "";
 
-    public static List<Score> selectAll() {
+    public static List<ScoreBDD> selectAll() {
         try(
             Connection connection = DriverManager.getConnection(
                 DB_URL, DB_USER, DB_PASSWORD
@@ -29,13 +29,13 @@ public class steakScoreRepository {
             );
             ResultSet resulSet = statement.executeQuery();
         ) {
-            List<Score> scores = new ArrayList<Score>();
+            List<ScoreBDD> scores = new ArrayList<ScoreBDD>();
 
             while(resulSet.next()){
                 int id = resulSet.getInt("id");
                 String nickname = resulSet.getString("nickname");
                 int steak_score = resulSet.getInt("steak_score");
-                scores.add(new Score(id, nickname, steak_score));
+                scores.add(new ScoreBDD(id, nickname, steak_score));
             }
 
             return scores;
@@ -47,7 +47,7 @@ public class steakScoreRepository {
         }
     }
 
-    public static Score selectById(int id) {
+    public static ScoreBDD selectById(int id) {
         try(
             Connection connection = DriverManager.getConnection(
                 DB_URL, DB_USER, DB_PASSWORD
@@ -64,7 +64,7 @@ public class steakScoreRepository {
                 if(resulSet.next()){
                     String nickname = resulSet.getString("nickname");
                     int steak_score = resulSet.getInt("steak_score");
-                    return new Score(id, nickname, steak_score);
+                    return new ScoreBDD(id, nickname, steak_score);
                 }
                 else {
                     throw new ResponseStatusException(
