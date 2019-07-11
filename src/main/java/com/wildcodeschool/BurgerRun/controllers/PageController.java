@@ -49,6 +49,19 @@ class PageController {
                 currentOpponent = 1;
             }
 
+            if(move.equals("left")) {
+                // aller a gauche
+            }
+            else if(move.equals("right")) {
+                // aller a droite
+            } 
+            else if(move.equals("bottom")) {
+                // aller en bas
+            }
+            else if(move.equals("top")) {
+                // aller en haut
+            }
+
             if(gameStatus == true) {
                 session.setAttribute("currentPlayer", currentOpponent);
             } else {

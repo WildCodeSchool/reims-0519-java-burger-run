@@ -235,3 +235,18 @@ tr, td, th {
     width: 50%;
     margin-left: 25vw;
 }
+
+/* --------------- MAZE --------------- */ 
+
+.grid {
+   --cell-size: 100px;
+   display: grid;
+   grid-template-columns: repeat(3, var(--cell-size));
+   grid-template-rows: repeat(3, var(--cell-size));
+}
+
+.cell {
+   width: var(--cell-size);
+   height: var(--cell-size);
+   border:white 1px solid;
+}

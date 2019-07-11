@@ -35,7 +35,9 @@
 		</section>
 
 		<section class="labyrinth_section">
-			
+			<div class="grid">
+				<div th:each="i : ${#numbers.sequence(1, 9)}" class="cell"></div>
+			</div>
 		</section>
 
 		<section class="command_board">
