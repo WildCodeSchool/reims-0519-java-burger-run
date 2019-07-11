@@ -27,6 +27,16 @@ class PageController {
         return "rules";
     }
 
+    @GetMapping("/win")
+    public String win(Model model) {
+        return "win";
+    }
+
+    @GetMapping("/loose")
+    public String loose(Model model) {
+        return "loose";
+    }
+
     @GetMapping("/game")
     public String game(Model model, HttpSession session) {
         if(session.getAttribute("currentPlayer") == null) {
