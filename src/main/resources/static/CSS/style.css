@@ -50,6 +50,8 @@ body {
     width: 100vw;
     overflow: hidden;
     background-color: black;
+    background-image: url(../IMG/general_bg.png);
+    background-size: cover;
     color: white;
     text-align: center;
     display: flex;
