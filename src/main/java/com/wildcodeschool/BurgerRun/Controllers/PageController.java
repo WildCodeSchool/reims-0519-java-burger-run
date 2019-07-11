@@ -21,11 +21,6 @@ class PageController {
         return "rules";
     }
 
-    @GetMapping("/ranking")
-    public String ranking(Model model) {
-        return "ranking";
-    }
-
     @GetMapping("/game")
     public String game(Model model, HttpSession session) {
         if(session.getAttribute("currentPlayer") == null) {
@@ -35,6 +30,11 @@ class PageController {
         model.addAttribute("currentPlayer", session.getAttribute("currentPlayer").equals(1) ? "Burger" : "Human");
 
         return "game";
+    }
+
+    @GetMapping("/ranking")
+    public String ranking(Model model) {
+        return "ranking";
     }
 
     @PostMapping("/game")
