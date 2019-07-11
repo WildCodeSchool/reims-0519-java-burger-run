@@ -40,10 +40,12 @@
 		</section>
 
 		<section class="command_board">
-			<button>Left<ion-icon name="arrow-round-back" class="color-bread"></ion-icon></button>
-			<button>Top<ion-icon name="arrow-round-up" class="color-salad"></ion-icon></button>
-			<button>Bottom<ion-icon name="arrow-round-down" class="color-tomato"></ion-icon></button>		
-			<button>Right<ion-icon name="arrow-round-forward" class="color-steak"></ion-icon></button>
+			<form action="/game" method="POST">
+				<input type="submit" name="position" value="left" class="color-bread">
+				<input type="submit" name="position" value="top" class="color-tomato">
+				<input type="submit" name="position" value="bottom" class="color-salad">
+				<input type="submit" name="position" value="right" class="color-steak">
+			</form>
 		</section>
 
 		<section class="stat_board">
