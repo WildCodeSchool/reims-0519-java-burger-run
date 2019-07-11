@@ -90,18 +90,22 @@ class PageController {
                 }
             }
 
-            if(gameStatus == true) {
-                session.setAttribute("currentPlayer", currentOpponent);
-            } else {
+            if(burger.getIdBurger() == maze.getIdExit() || burger.getLife() == 0) {
                 gameStatus = false;
+            }
+             else {
+                session.setAttribute("currentPlayer", currentOpponent);
             }
         }
 
         if(gameStatus) {
             return "redirect:/game";
         } 
-        else { 
-            return "redirect:/";
+        else {
+            if(burger.getLife() > 0) {
+                return "redirect:/win";
+            }
+            return "redirect:/lose";
         }
     }
 

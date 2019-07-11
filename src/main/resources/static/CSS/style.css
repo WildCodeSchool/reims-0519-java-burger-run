@@ -264,7 +264,6 @@ tr, td, th {
 .cell {
    width: var(--cell-size);
    height: var(--cell-size);
-   border:white 1px solid;
 }
 
 .burger-bg {
@@ -280,6 +279,22 @@ tr, td, th {
     padding:0;
     border: none;
     margin-left: 15vw;
+}
+
+.wall-top {
+    border-top:white 1px solid;
+}
+
+.wall-bottom {
+    border-bottom:white 1px solid;
+}
+
+.wall-left {
+    border-left:white 1px solid;
+}
+
+.wall-right {
+    border-right:white 1px solid;
 }
 
 /* --------------- LOOSE --------------- */
@@ -303,5 +318,5 @@ tr, td, th {
 @keyframes bounce {
 	0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
 	40% {transform: translateY(-15px);}
-	60% {transform: translateY(-15px);}
+    60% {transform: translateY(-15px);}
 }
