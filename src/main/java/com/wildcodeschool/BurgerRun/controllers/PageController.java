@@ -35,4 +35,31 @@ class PageController {
         return "ranking";
     }
 
+    @PostMapping("/game")
+    public String game(HttpSession session, @RequestParam(required = false) String move) {
+
+        boolean gameStatus = true;
+
+        if(move != null) { 
+
+            int currentOpponent = 2;
+            if(!session.getAttribute("currentPlayer").equals(1)) {
+                currentOpponent = 1;
+            }
+
+            if(gameStatus == true) {
+                session.setAttribute("currentPlayer", currentOpponent);
+            } else {
+                gameStatus = false;
+            }
+        }
+
+        if(gameStatus) {
+            return "redirect:/game";
+        } 
+        else { 
+            return "redirect:/";
+        }
+    }
+
 }
