@@ -3,13 +3,11 @@ package com.wildcodeschool.BurgerRun.repositories;
 import com.wildcodeschool.BurgerRun.entities.Maze;
 
 public class MazeRepository {
-    private static Maze maze = getMaze();
+    private Maze maze;
 
-    public static Maze getMaze() {
-        if (maze == null) {
-            maze = new Maze();
-        }
-        return maze;
+    public MazeRepository() {
+        this.maze = new Maze();
+        initMaze();
     }
 
     public void initMaze() {
