@@ -1,6 +1,6 @@
-package com.wildcodeschool.BurgerRun.Repositories;
+package com.wildcodeschool.BurgerRun.repositories;
 
-import com.wildcodeschool.BurgerRun.Entities.Maze;
+import com.wildcodeschool.BurgerRun.entities.Maze;
 
 public class MazeRepository {
     private static Maze maze = getMaze();

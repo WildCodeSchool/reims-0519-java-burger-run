@@ -1,4 +1,4 @@
-package com.wildcodeschool.BurgerRun.Entities;
+package com.wildcodeschool.BurgerRun.entities;
 
 public class Maze {
     private String[][] matrix;
