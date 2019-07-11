@@ -2,9 +2,13 @@ package com.wildcodeschool.BurgerRun.controllers;
 
 import javax.servlet.http.HttpSession;
 
+import com.wildcodeschool.BurgerRun.repositories.MazeRepository;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 class PageController {
@@ -19,6 +23,11 @@ class PageController {
         return "rules";
     }
 
+    @GetMapping("/ranking")
+    public String ranking(Model model) {
+        return "ranking";
+    }
+
     @GetMapping("/game")
     public String game(Model model, HttpSession session) {
         if(session.getAttribute("currentPlayer") == null) {
@@ -30,9 +39,32 @@ class PageController {
         return "game";
     }
 
-    @GetMapping("/ranking")
-    public String ranking(Model model) {
-        return "ranking";
+    @PostMapping("/game")
+    public String game(HttpSession session, @RequestParam(required = false) String move) {
+
+        boolean gameStatus = true;
+
+        if(move != null) { 
+
+            int currentOpponent = 2;
+            if(!session.getAttribute("currentPlayer").equals(1)) {
+                currentOpponent = 1;
+            }
+
+            if(gameStatus == true) {
+                session.setAttribute("currentPlayer", currentOpponent);
+            } else {
+                gameStatus = false;
+            }
+        }
+
+        if(gameStatus) {
+            return "redirect:/game";
+        } 
+        else { 
+            return "redirect:/";
+        }
     }
+
 
 }
