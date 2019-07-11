@@ -7,14 +7,12 @@
     src: local('Arcade Interlaced'), url(../ARCADE_I.woff) format('woff');
 }
 
-
 @font-face {
     font-family: 'Arcade Normal';
     font-style: normal;
     font-weight: normal;
     src: local('Arcade Normal'), url(../ARCADE_N.woff) format('woff');
 }
-
 
 @font-face {
     font-family: 'Arcade Rounded';
@@ -72,7 +70,6 @@ h1 {
 ul {
     list-style-type: none;
 }
-
 
 header ul li {
     border: thick double white;
@@ -154,7 +151,6 @@ header ul li:nth-child(2):hover a {
     margin-left: -50px;
 }
 
-
 /* --------------- RULES --------------- */ 
 
 .main_menu {
@@ -190,7 +186,6 @@ tr, td, th {
     border: 3px white double;
     padding: 30px;
 }
-
 
 /* --------------- GAME --------------- */ 
 
