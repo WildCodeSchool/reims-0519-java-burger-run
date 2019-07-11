@@ -36,7 +36,7 @@
 
 		<section class="labyrinth_section">
 			<div class="grid">
-				<div th:each="cell : ${maze}" th:class="${cell.isBurger()} ? 'cell burger-bg' : 'cell'"></div>
+				<div th:each="cell : ${maze}" th:classappend="${(cell.burger ? 'cell burger-bg' : 'cell') + (cell.wallTop ? ' wall-top' : '') + (cell.wallBottom ? ' wall-bottom' : '') + (cell.wallLeft ? ' wall-left' : '') + (cell.wallRight ? ' wall-right' : '')}"></div>
 			</div>
 		</section>
 
