@@ -5,6 +5,7 @@ import com.wildcodeschool.BurgerRun.entities.Cell;
 public class MazeRepository {
     private Cell[] cells;
     private int size = 16;
+    private int idExit = 249;
 
     public MazeRepository(int idBurgerStart) {
         this.cells = new Cell[size*size];
@@ -81,6 +82,7 @@ public class MazeRepository {
         return size;
     }
 
+
     private int [] topwalls = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
        ,0,1,1,1,0,0,0,0,0,0,1,1,0,0,1,1,
         1,0,1,1,0,1,1,1,1,1,1,1,1,1,1,0,
@@ -155,3 +157,7 @@ public class MazeRepository {
 }
 
 
+    public int getIdExit() {
+        return idExit;
+    }
+}
