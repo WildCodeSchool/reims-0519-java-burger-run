@@ -1,57 +1,27 @@
 package com.wildcodeschool.BurgerRun.entities;
 
 public class Burger {
-    private String burgerName;
-    private int lifeStart = 1;
-    private int newLife;
-    private int xBurger;
-    private int yBurger;
+    private int life = 1;
+    private int idBurger;
 
-    public Burger(String burgerName, int lifeStart, int newLife, int xBurger, int yBurger) {
-        this.burgerName = burgerName;
-        this.lifeStart = lifeStart;
-        this.newLife = newLife;
-        this.xBurger = xBurger;
-        this.yBurger = yBurger;
+    public int getLife() {
+        return life;
     }
 
-    public String getBurgerName() {
-        return burgerName;
+    public void setLife(int life) {
+        this.life = life;
     }
 
-    public void setBurgerName(String burgerName) {
-        this.burgerName = burgerName;
+    public int getIdBurger() {
+        return idBurger;
     }
 
-    public int getLifeStart() {
-        return lifeStart;
-    }
+    public void setIdBurger(int idBurger) {
+		this.idBurger = idBurger;
+	}
 
-    public void setLifeStart(int lifeStart) {
-        this.lifeStart = lifeStart;
-    }
-
-    public int getNewLife() {
-        return newLife;
-    }
-
-    public void setNewLife(int newLife) {
-        this.newLife = newLife;
-    }
-
-    public int getxBurger() {
-        return xBurger;
-    }
-
-    public void setxBurger(int xBurger) {
-        this.xBurger = xBurger;
-    }
-
-    public int getyBurger() {
-        return yBurger;
-    }
-
-    public void setyBurger(int yBurger) {
-        this.yBurger = yBurger;
+    public Burger(int life, int idBurger) {
+		this.life = life;
+		this.idBurger = idBurger;
     }
 }
