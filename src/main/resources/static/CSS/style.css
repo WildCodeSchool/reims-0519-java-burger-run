@@ -250,3 +250,15 @@ tr, td, th {
    height: var(--cell-size);
    border:white 1px solid;
 }
+
+.cells {
+    position: absolute;
+    top: 200px;
+}
+
+.burger-bg {
+    background-image: url(../IMG/hamburger_icon.png);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+}
