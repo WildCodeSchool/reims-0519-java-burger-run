@@ -1,6 +1,10 @@
 package com.wildcodeschool.BurgerRun.controllers;
 
+import java.util.Arrays;
+
 import javax.servlet.http.HttpSession;
+
+import com.wildcodeschool.BurgerRun.repositories.GameRepository;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 class PageController {
+
+    GameRepository game = GameRepository.getInstance();
 
     @GetMapping("/")
     public String index(Model model) {
@@ -28,6 +34,7 @@ class PageController {
         }
 
         model.addAttribute("currentPlayer", session.getAttribute("currentPlayer").equals(1) ? "Burger" : "Human");
+        model.addAttribute("maze", game.getMazeRepository().getCells());
 
         return "game";
     }
@@ -38,7 +45,7 @@ class PageController {
     }
 
     @PostMapping("/game")
-    public String game(HttpSession session, @RequestParam(required = false) String move) {
+    public String game(Model model, HttpSession session, @RequestParam(required = false) String move) {
 
         boolean gameStatus = true;
 
