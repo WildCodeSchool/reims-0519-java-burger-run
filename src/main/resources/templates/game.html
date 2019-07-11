@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-		<link rel="stylesheet" href="../static/CSS/style.css" th:href="@{css/style.css}">
+		<link rel="stylesheet" href="../CSS/style.css" th:href="@{css/style.css}">
 
 		<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 
@@ -31,7 +31,6 @@
 		</header>
 
 		<section class="actions">
-			<p th:text="${message}" class="color-salad">Let the battle begin</p>
 			<p><strong th:text="${currentPlayer}" class="color-tomato">player 1</strong> is playing now</p>
 		</section>
 
@@ -41,10 +40,10 @@
 
 		<section class="command_board">
 			<form action="/game" method="POST">
-				<input type="submit" name="position" value="left" class="color-bread">
-				<input type="submit" name="position" value="top" class="color-tomato">
-				<input type="submit" name="position" value="bottom" class="color-salad">
-				<input type="submit" name="position" value="right" class="color-steak">
+				<input type="submit" name="move" value="left" class="color-bread">
+				<input type="submit" name="move" value="top" class="color-tomato">
+				<input type="submit" name="move" value="bottom" class="color-salad">
+				<input type="submit" name="move" value="right" class="color-steak">
 			</form>
 		</section>
 
