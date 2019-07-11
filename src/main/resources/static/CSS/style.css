@@ -194,6 +194,16 @@ tr, td, th {
 
 /* --------------- GAME --------------- */ 
 
+.actions {
+    width: 60%;
+    margin-left: 25vw;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .command_board {
     display: flex;
     justify-content: space-between;
