@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-		<link rel="stylesheet" href="../CSS/style.css">
+		<link rel="stylesheet" href="../static/CSS/style.css">
 
 		<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 
@@ -35,10 +35,12 @@
 		</section>
 
 		<section class="command_board">
-			<button>Left<ion-icon name="arrow-round-back" class="color-bread"></ion-icon></button>
-			<button>Top<ion-icon name="arrow-round-up" class="color-salad"></ion-icon></button>
-			<button>Bottom<ion-icon name="arrow-round-down" class="color-tomato"></ion-icon></button>		
-			<button>Right<ion-icon name="arrow-round-forward" class="color-steak"></ion-icon></button>
+			<form action="/game" method="POST">
+				<input type="submit" name="position" value="left" class="color-bread">
+				<input type="submit" name="position" value="top" class="color-tomato">
+				<input type="submit" name="position" value="bottom" class="color-salad">
+				<input type="submit" name="position" value="right" class="color-steak">
+			</form>
 		</section>
 
 		<section class="stat_board">
