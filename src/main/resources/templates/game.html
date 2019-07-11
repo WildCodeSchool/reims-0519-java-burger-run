@@ -38,6 +38,9 @@
 			<div class="grid">
 				<div th:each="i : ${#numbers.sequence(1, 9)}" class="cell"></div>
 			</div>
+			<div class="grid cells">
+				<div th:each="cell : ${maze}" th:class="${cell.isBurger()} ? 'cell burger-bg' : 'cell'"></div>
+			</div>
 		</section>
 
 		<section class="command_board">
