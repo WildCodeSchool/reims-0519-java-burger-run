@@ -1,56 +1,50 @@
 package com.wildcodeschool.BurgerRun.repositories;
 
-import com.wildcodeschool.BurgerRun.entities.Maze;
+import com.wildcodeschool.BurgerRun.entities.Cell;
 
 public class MazeRepository {
-    private Maze maze;
+    private Cell[] cells;
+    private int size = 9;
 
-    public MazeRepository() {
-        this.maze = new Maze();
-        initMaze();
+    public MazeRepository(int idBurgerStart) {
+        this.cells = new Cell[size];
+        for (int i = 0; i < size; i++) {
+            this.cells[i] = new Cell(i+1, false, false, false);
+            if (i+1 == idBurgerStart) {
+                this.cells[i].setBurger(true);
+            }
+        }
     }
 
-    public void initMaze() {
-        String strings = 
-            "#######" +
-            "#   # S" +
-            "# # # #" +
-            "# # # #" +
-            "E #   #" +
-            "#######";
-        String[] cells = strings.split("");
-        maze.setCells(cells);
+    public boolean canGoTo(int id) {
+        return !cells[id].isWall();
     }
 
-    public boolean canGoUp(int id) {
-        return maze.getCells()[id].equals("");
+    public void goUp(int id) {
+        cells[id].setBurger(false);
+        cells[id - size].setBurger(true);
     }
 
-    public boolean canGoDown(int id) {
-        return maze.getCells()[id].equals("");
+    public void getDown(int id) {
+        cells[id].setBurger(false);
+        cells[id + size].setBurger(true);
     }
 
-    public boolean canGoRight(int id) {
-        return maze.getCells()[id].equals("");
+    public void getRight(int id) {
+        cells[id].setBurger(false);
+        cells[id + 1].setBurger(true);
     }
 
-    public boolean canGoLeft(int id) {
-        return maze.getCells()[id].equals("");
+    public void getLeft(int id) {
+        cells[id].setBurger(false);
+        cells[id - 1].setBurger(true);
     }
 
-    public int getUp(int id) {
-        return id - maze.getSize();
+    public Cell[] getCells() {
+        return cells;
     }
 
-    public int getDown(int id) {
-        return id + maze.getSize();
-    }
-
-    public int getRight(int id) {
-        return id + 1;
-    }
-
-    public int getLeft(int id) {
-        return id - 1;
+    public int getSize() {
+        return size;
     }
 }
