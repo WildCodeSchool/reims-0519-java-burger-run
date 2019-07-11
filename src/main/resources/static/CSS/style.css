@@ -242,14 +242,21 @@ tr, td, th {
 /* --------------- MAZE --------------- */ 
 
 .grid {
-   --cell-size: 100px;
+   --cell-size: 60px;
    display: grid;
-   grid-template-columns: repeat(3, var(--cell-size));
-   grid-template-rows: repeat(3, var(--cell-size));
+   grid-template-columns: repeat(5, var(--cell-size));
+   grid-template-rows: repeat(5, var(--cell-size));
 }
 
 .cell {
    width: var(--cell-size);
    height: var(--cell-size);
    border:white 1px solid;
+}
+
+.burger-bg {
+    background-image: url(../IMG/hamburger_icon.png);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
 }

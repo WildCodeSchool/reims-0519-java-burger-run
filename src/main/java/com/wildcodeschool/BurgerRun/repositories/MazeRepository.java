@@ -1,56 +1,67 @@
 package com.wildcodeschool.BurgerRun.repositories;
 
-import com.wildcodeschool.BurgerRun.entities.Maze;
+import com.wildcodeschool.BurgerRun.entities.Cell;
 
 public class MazeRepository {
-    private Maze maze;
+    private Cell[] cells;
+    private int size = 5;
 
-    public MazeRepository() {
-        this.maze = new Maze();
-        initMaze();
-    }
-
-    public void initMaze() {
-        String strings = 
-            "#######" +
-            "#   # S" +
-            "# # # #" +
-            "# # # #" +
-            "E #   #" +
-            "#######";
-        String[] cells = strings.split("");
-        maze.setCells(cells);
+    public MazeRepository(int idBurgerStart) {
+        this.cells = new Cell[size*size];
+        for (int i = 0; i < size*size; i++) {
+            this.cells[i] = new Cell(i, false, false, false);
+            if (i == idBurgerStart) {
+                this.cells[i].setBurger(true);
+            }
+        }
     }
 
     public boolean canGoUp(int id) {
-        return maze.getCells()[id].equals("");
+        return !cells[id].isWall() && (id/size > 0);
     }
 
     public boolean canGoDown(int id) {
-        return maze.getCells()[id].equals("");
-    }
-
-    public boolean canGoRight(int id) {
-        return maze.getCells()[id].equals("");
+        return !cells[id].isWall() && (id/size < size-1);
     }
 
     public boolean canGoLeft(int id) {
-        return maze.getCells()[id].equals("");
+        return !cells[id].isWall() && (id%size > 0);
     }
 
-    public int getUp(int id) {
-        return id - maze.getSize();
+    public boolean canGoRight(int id) {
+        return !cells[id].isWall() && (id%size < size-1);
     }
 
-    public int getDown(int id) {
-        return id + maze.getSize();
+
+    public int goUp(int id) {
+        cells[id].setBurger(false);
+        cells[id - size].setBurger(true);
+        return id - size;
     }
 
-    public int getRight(int id) {
+    public int goDown(int id) {
+        cells[id].setBurger(false);
+        cells[id + size].setBurger(true);
+        return id + size;
+    }
+
+    public int goRight(int id) {
+        cells[id].setBurger(false);
+        cells[id + 1].setBurger(true);
         return id + 1;
     }
 
-    public int getLeft(int id) {
+    public int goLeft(int id) {
+        cells[id].setBurger(false);
+        cells[id - 1].setBurger(true);
         return id - 1;
+    }
+
+    public Cell[] getCells() {
+        return cells;
+    }
+
+    public int getSize() {
+        return size;
     }
 }

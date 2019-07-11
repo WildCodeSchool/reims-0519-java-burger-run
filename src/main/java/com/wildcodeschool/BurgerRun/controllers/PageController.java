@@ -2,6 +2,10 @@ package com.wildcodeschool.BurgerRun.controllers;
 
 import javax.servlet.http.HttpSession;
 
+import com.wildcodeschool.BurgerRun.entities.Burger;
+import com.wildcodeschool.BurgerRun.repositories.GameRepository;
+import com.wildcodeschool.BurgerRun.repositories.MazeRepository;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 class PageController {
+
+    GameRepository game = GameRepository.getInstance();
 
     @GetMapping("/")
     public String index(Model model) {
@@ -28,6 +34,7 @@ class PageController {
         }
 
         model.addAttribute("currentPlayer", session.getAttribute("currentPlayer").equals(1) ? "Burger" : "Human");
+        model.addAttribute("maze", game.getMaze().getCells());
 
         return "game";
     }
@@ -38,9 +45,12 @@ class PageController {
     }
 
     @PostMapping("/game")
-    public String game(HttpSession session, @RequestParam(required = false) String move) {
+    public String game(Model model, HttpSession session, @RequestParam(required = false) String move) {
 
         boolean gameStatus = true;
+        MazeRepository maze = game.getMaze();
+        Burger burger = game.getBurger();
+        int positionBurger = burger.getIdBurger();
 
         if(move != null) { 
 
@@ -50,16 +60,24 @@ class PageController {
             }
 
             if(move.equals("left")) {
-                // aller a gauche
+                if (maze.canGoLeft(positionBurger)) {
+                    burger.setIdBurger(maze.goLeft(positionBurger));
+                }
             }
             else if(move.equals("right")) {
-                // aller a droite
+                if (maze.canGoRight(positionBurger)) {
+                    burger.setIdBurger(maze.goRight(positionBurger));
+                }
             } 
             else if(move.equals("bottom")) {
-                // aller en bas
+                if (maze.canGoDown(positionBurger)) {
+                    burger.setIdBurger(maze.goDown(positionBurger));
+                }
             }
             else if(move.equals("top")) {
-                // aller en haut
+                if (maze.canGoUp(positionBurger)) {
+                    burger.setIdBurger(maze.goUp(positionBurger));
+                }
             }
 
             if(gameStatus == true) {
