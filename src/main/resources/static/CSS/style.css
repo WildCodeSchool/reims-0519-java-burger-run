@@ -290,3 +290,18 @@ tr, td, th {
     margin-left: 25vw;
     transform: rotate(10deg);
 }
+
+/* --------------- WIN --------------- */
+
+.burger-WIN {
+    width:400px;
+    margin-top:30px;
+    margin-left: 25vw;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+	40% {transform: translateY(-15px);}
+	60% {transform: translateY(-15px);}
+}
