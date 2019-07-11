@@ -1,5 +1,7 @@
 package com.wildcodeschool.BurgerRun.controllers;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +20,13 @@ class PageController {
     }
 
     @GetMapping("/game")
-    public String game(Model model) {
+    public String game(Model model, HttpSession session) {
+        if(session.getAttribute("currentPlayer") == null) {
+            session.setAttribute("currentPlayer", 1);
+        }
+
+        model.addAttribute("currentPlayer", session.getAttribute("currentPlayer").equals(1) ? "Burger" : "Human");
+
         return "game";
     }
 
