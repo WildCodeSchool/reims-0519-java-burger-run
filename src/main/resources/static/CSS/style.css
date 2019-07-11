@@ -202,10 +202,17 @@ tr, td, th {
 
 /* --------------- GAME --------------- */ 
 
+.game-title {
+    position: absolute;
+    top: 4.5vw;
+    left: 5vw;
+    margin: 0vw;
+}
+
 .actions {
-    width: 60%;
-    margin-left: 25vw;
-    padding: 5px;
+    position: absolute;
+    top: 12vw;
+    left: 4vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -213,22 +220,28 @@ tr, td, th {
 }
 
 .command_board {
-    padding-top: 30px;
-    width: 50%;
-    margin-left: 25vw;
-    font-size:13pt;
+    right: 6vw;
+    top: 25vh;
+    position: absolute;
+}
+
+.command_board form {
+    display: flex;
+    flex-direction: column;
 }
 
 .command_board form input {
-    height:60px;
-    width: 130px;
-    background-color: black;
-    border: 1px double white;
+    height:50px;
+    width: 100px;
+    margin: 20px 0 20px 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: thick double white;
 }
 
 .command_board form input:hover {
     background-color: white;
     color: black;
+    transition: 0.5s;
 }
 
 .stat_board {
@@ -242,10 +255,10 @@ tr, td, th {
 /* --------------- MAZE --------------- */ 
 
 .grid {
-   --cell-size: 60px;
+   --cell-size: 35px;
    display: grid;
-   grid-template-columns: repeat(5, var(--cell-size));
-   grid-template-rows: repeat(5, var(--cell-size));
+   grid-template-columns: repeat(16, var(--cell-size));
+   grid-template-rows: repeat(16, var(--cell-size));
 }
 
 .cell {
@@ -259,4 +272,12 @@ tr, td, th {
     background-repeat: no-repeat;
     background-position-x: center;
     background-position-y: center;
+    background-size: contain;
+}
+
+.labyrinth_section {
+    width: auto;
+    padding:0;
+    border: none;
+    margin-left: 15vw;
 }
