@@ -4,40 +4,57 @@ import com.wildcodeschool.BurgerRun.entities.Cell;
 
 public class MazeRepository {
     private Cell[] cells;
-    private int size = 9;
+    private int size = 5;
 
     public MazeRepository(int idBurgerStart) {
-        this.cells = new Cell[size];
-        for (int i = 0; i < size; i++) {
-            this.cells[i] = new Cell(i+1, false, false, false);
-            if (i+1 == idBurgerStart) {
+        this.cells = new Cell[size*size];
+        for (int i = 0; i < size*size; i++) {
+            this.cells[i] = new Cell(i, false, false, false);
+            if (i == idBurgerStart) {
                 this.cells[i].setBurger(true);
             }
         }
     }
 
-    public boolean canGoTo(int id) {
-        return !cells[id].isWall();
+    public boolean canGoUp(int id) {
+        return !cells[id].isWall() && (id/size > 0);
     }
 
-    public void goUp(int id) {
+    public boolean canGoDown(int id) {
+        return !cells[id].isWall() && (id/size < size-1);
+    }
+
+    public boolean canGoLeft(int id) {
+        return !cells[id].isWall() && (id%size > 0);
+    }
+
+    public boolean canGoRight(int id) {
+        return !cells[id].isWall() && (id%size < size-1);
+    }
+
+
+    public int goUp(int id) {
         cells[id].setBurger(false);
         cells[id - size].setBurger(true);
+        return id - size;
     }
 
-    public void getDown(int id) {
+    public int goDown(int id) {
         cells[id].setBurger(false);
         cells[id + size].setBurger(true);
+        return id + size;
     }
 
-    public void getRight(int id) {
+    public int goRight(int id) {
         cells[id].setBurger(false);
         cells[id + 1].setBurger(true);
+        return id + 1;
     }
 
-    public void getLeft(int id) {
+    public int goLeft(int id) {
         cells[id].setBurger(false);
         cells[id - 1].setBurger(true);
+        return id - 1;
     }
 
     public Cell[] getCells() {

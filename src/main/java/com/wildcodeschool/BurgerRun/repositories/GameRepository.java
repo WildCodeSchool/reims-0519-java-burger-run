@@ -13,7 +13,7 @@ public class GameRepository {
     public static GameRepository getInstance() {
         if (instance == null) {
             instance = new GameRepository();
-            instance.burger = new Burger(1, 5);
+            instance.burger = new Burger(1, 0);
             instance.maze = new MazeRepository(instance.getBurger().getIdBurger());
         }
         return instance;
