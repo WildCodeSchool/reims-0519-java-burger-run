@@ -281,3 +281,12 @@ tr, td, th {
     border: none;
     margin-left: 15vw;
 }
+
+/* --------------- LOOSE --------------- */
+
+.burger-KO {
+    width:400px;
+    margin-top:30px;
+    margin-left: 25vw;
+    transform: rotate(10deg);
+}
