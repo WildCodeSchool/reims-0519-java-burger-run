@@ -1,0 +1,234 @@
+/* --------------- IMPORT FONT --------------- */
+
+@font-face {
+    font-family: 'Arcade Interlaced';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Arcade Interlaced'), url(../ARCADE_I.woff) format('woff');
+}
+
+
+@font-face {
+    font-family: 'Arcade Normal';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Arcade Normal'), url(../ARCADE_N.woff) format('woff');
+}
+
+
+@font-face {
+    font-family: 'Arcade Rounded';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Arcade Rounded'), url(../ARCADE_R.woff) format('woff');
+}
+
+/* --------------- COLOR BURGER --------------- */
+
+.color-salad {
+    color: #6fc854;
+}
+
+.color-bread {
+    color: #f6b501;
+}
+
+.color-tomato {
+    color: #fd2500;
+}
+
+.color-sesame {
+    color: #fff2c8;
+}
+
+.color-steak {
+    color: #b6673e;
+}
+
+/* --------------- GENERALE CONFIGURATION --------------- */
+
+body {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-color: black;
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Arcade Rounded';
+    font-size: 10pt;
+}
+
+h1 {
+    font-size: 50pt;
+    margin-left: 25vw;
+    font-family: 'Arcade Normal';
+    color: #fff2c8;
+}
+
+ul {
+    list-style-type: none;
+}
+
+
+header ul li {
+    border: thick double white;
+    margin: 10px 0 10px 0;
+    height: 60px;
+    width: 122px;
+}
+
+header ul li a {
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px 0 10px;
+    font-weight: bolder;
+    font-family: 'Arcade Interlaced';
+}
+
+header ul li:hover {
+    background-image: url(../IMG/texture_burger.jpg);
+    background-size: contain;
+    transition: 1s;
+}
+
+header ul li:hover a {
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: 1s;
+    text-decoration: none;
+    color: white;
+}
+
+header ul li:nth-child(2) a {
+    animation: colorblink 0.6s infinite;
+}
+
+header ul li:nth-child(2):hover a {
+    animation: none;
+}
+
+@keyframes colorblink { 
+  0% { }
+  30% { color:red; } 
+}
+
+/* --------------- HOME --------------- */
+
+.home_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+}
+
+.home_container .logo {
+    width: 20vw;
+}
+
+.main_title {
+    font-size: 10pt;
+    color: white;
+    margin-left: -10px;
+    margin-top: 20px;
+}
+
+.home_container header .home_nav {
+    width: 30vw;
+}
+
+.home_container header .home_nav ul {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    margin-left: -50px;
+}
+
+
+/* --------------- RULES --------------- */ 
+
+.main_menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 25vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rules_section, .ranking_section, .labyrinth_section {
+    border: thick double white;
+    width: 60%;
+    margin-left: 25vw;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --------------- RANKING --------------- */ 
+
+table {
+    width: 100%;
+    height: 100%;
+}
+
+tr, td, th {
+    border: 3px white double;
+    padding: 30px;
+}
+
+
+/* --------------- GAME --------------- */ 
+
+.command_board {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30px;
+    width: 50%;
+    margin-left: 25vw;
+}
+
+.command_board button {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border: thick double white;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.command_board button:hover {
+    background-color: white;
+    color: black;
+    transition: 0.5s;
+}
+
+.command_board button ion-icon {
+    height: 30px;
+    width: 30px;
+    margin-left: 10px;
+    margin-bottom: 4px;
+}
+
+.stat_board {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30px;
+    width: 50%;
+    margin-left: 25vw;
+}
