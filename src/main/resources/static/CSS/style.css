@@ -50,6 +50,8 @@ body {
     width: 100vw;
     overflow: hidden;
     background-color: black;
+    background-image: url(../IMG/general_bg.png);
+    background-size: cover;
     color: white;
     text-align: center;
     display: flex;
@@ -131,10 +133,10 @@ header ul li:nth-child(2):hover a {
 
 @keyframes animate {
     0% {
-        margin-right: -1000px;
+        margin-right: -2000px;
     }
     100% {
-        margin-right: 100%;
+        margin-right: 130%;
     }
 }
 
@@ -183,6 +185,7 @@ header ul li:nth-child(2):hover a {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* --------------- RANKING --------------- */ 
@@ -199,33 +202,44 @@ tr, td, th {
 
 /* --------------- GAME --------------- */ 
 
+.game-title {
+    display: none;
+}
+
 .actions {
-    width: 60%;
+    width: 80%;
     margin-left: 25vw;
     padding: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    display:none;
 }
 
 .command_board {
-    padding-top: 30px;
-    width: 50%;
-    margin-left: 25vw;
-    font-size:13pt;
+    right: 2vw;
+    top: 32vh;
+    position: absolute;
+}
+
+.command_board form {
+    display: flex;
+    flex-direction: column;
 }
 
 .command_board form input {
-    height:60px;
-    width: 130px;
-    background-color: black;
-    border: 1px double white;
+    height:50px;
+    width: 100px;
+    margin: 20px 0 20px 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: thick double white;
 }
 
 .command_board form input:hover {
     background-color: white;
     color: black;
+    transition: 0.5s;
 }
 
 .stat_board {
@@ -239,10 +253,10 @@ tr, td, th {
 /* --------------- MAZE --------------- */ 
 
 .grid {
-   --cell-size: 60px;
+   --cell-size: 35px;
    display: grid;
-   grid-template-columns: repeat(5, var(--cell-size));
-   grid-template-rows: repeat(5, var(--cell-size));
+   grid-template-columns: repeat(16, var(--cell-size));
+   grid-template-rows: repeat(16, var(--cell-size));
 }
 
 .cell {
@@ -256,4 +270,11 @@ tr, td, th {
     background-repeat: no-repeat;
     background-position-x: center;
     background-position-y: center;
+    background-size: contain;
+}
+
+.labyrinth_section {
+    width: auto;
+    padding:0;
+    border: none;
 }
