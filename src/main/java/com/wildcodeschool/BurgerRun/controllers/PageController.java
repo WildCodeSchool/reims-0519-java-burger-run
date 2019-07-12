@@ -98,28 +98,28 @@ class PageController {
         if (key != null) {
             switch (key) {
                 case 37:
-                    move = "left";
+                    move = "←";
                     break;
                 case 81:
-                    move = "left";
+                    move = "←";
                     break;
                 case 48:
-                    move = "top";
+                    move = "↑";
                     break;
                 case 90:
-                    move = "top";
+                    move = "↑";
                     break;
                 case 39:
-                    move = "right";
+                    move = "→";
                     break;
                 case 68:
-                    move = "right";
+                    move = "→";
                     break;
                 case 40:
-                    move = "bottom";
+                    move = "↓";
                     break;
                 case 83:
-                    move = "bottom";
+                    move = "↓";
                     break;
             }
         }
