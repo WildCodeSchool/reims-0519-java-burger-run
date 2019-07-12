@@ -43,6 +43,26 @@
     color: #b6673e;
 }
 
+.bg-salad {
+    background-color: #6fc854;
+}
+
+.bg-bread {
+    background-color: #f6b501;
+}
+
+.bg-tomato {
+    background-color: #fd2500;
+}
+
+.bg-sesame {
+    background-color: #fff2c8;
+}
+
+.bg-steak {
+    background-color: #b6673e;
+}
+
 /* --------------- GENERALE CONFIGURATION --------------- */
 
 body {
@@ -117,7 +137,7 @@ header ul li:nth-child(2):hover a {
 
 @keyframes colorblink { 
   0% { }
-  30% { color:red; } 
+  30% { color:#fd2500; } 
 }
 
 /* --------------- HOME --------------- */
@@ -153,7 +173,7 @@ header ul li:nth-child(2):hover a {
 }
 
 .home_container header .home_nav {
-    width: 30vw;
+    width: 35vw;
 }
 
 .home_container header .home_nav ul {
@@ -178,6 +198,7 @@ header ul li:nth-child(2):hover a {
 
 .rules_section, .ranking_section, .labyrinth_section {
     border: thick double white;
+    background-color: rgba(0, 0, 0, 0.8);
     width: 60%;
     margin-left: 25vw;
     padding: 30px;
@@ -185,7 +206,12 @@ header ul li:nth-child(2):hover a {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.rules_section input {
+    width: 30px;
+    height: 30px;
+    text-align: center;
 }
 
 /* --------------- RANKING --------------- */ 
@@ -204,52 +230,52 @@ tr, td, th {
 
 .game-title {
     position: absolute;
-    top: 4.5vw;
-    left: 5vw;
+    top: 6vw;
+    right: 6.3vw;
     margin: 0vw;
-}
-
-.actions {
-    position: absolute;
-    top: 12vw;
-    left: 4vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    font-size: 30pt;
 }
 
 .command_board {
-    right: 6vw;
+    right: 3.5vw;
     top: 25vh;
     position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px double black;
+    padding: 20px 20px 30px 20px;
+    background-color: rgb(255, 255, 255, 0.9);
+    border-radius: 20px;
 }
 
 .command_board form {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .command_board form input {
     height:50px;
-    width: 100px;
-    margin: 20px 0 20px 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    border: thick double white;
+    width:50px;
+    font-size:20pt;
+    border-radius: 5px;
+    margin: 5px;
+    color:white;
+    text-shadow: 1px 1px black;
 }
 
-.command_board form input:hover {
-    background-color: white;
-    color: black;
-    transition: 0.5s;
-}
-
-.stat_board {
+.command_board form .three-button {
     display: flex;
-    justify-content: space-between;
-    padding-top: 30px;
-    width: 50%;
-    margin-left: 25vw;
+}
+
+.command_board span {
+    font-size: 10pt;
+    margin: 5px 0 5px 0;
+}
+
+.command_board .steak_count span {
+    font-size: 16pt;
 }
 
 /* --------------- MAZE --------------- */ 
@@ -266,35 +292,52 @@ tr, td, th {
    height: var(--cell-size);
 }
 
+.labyrinth_section {
+    width: auto;
+    padding:0;
+    border: none;
+    margin-left: -2vw;
+    background-color: rgb(255, 255, 255, 0.9);
+}
+
+.wall-top {
+    border-top:black 1px solid;
+}
+
+.wall-bottom {
+    border-bottom: black 1px solid;
+}
+
+.wall-left {
+    border-left:black 1px solid;
+}
+
+.wall-right {
+    border-right:black 1px solid;
+}
+
 .burger-bg {
-    background-image: url(../IMG/hamburger_icon.png);
+    background-image: url(../IMG/burger-gif-icon.gif);
     background-repeat: no-repeat;
     background-position-x: center;
     background-position-y: center;
     background-size: contain;
 }
 
-.labyrinth_section {
-    width: auto;
-    padding:0;
-    border: none;
-    margin-left: 15vw;
+.steak-bg {
+    background-image: url(../IMG/steak_icon.png);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: contain;
 }
 
-.wall-top {
-    border-top:white 1px solid;
-}
-
-.wall-bottom {
-    border-bottom:white 1px solid;
-}
-
-.wall-left {
-    border-left:white 1px solid;
-}
-
-.wall-right {
-    border-right:white 1px solid;
+.hungry-man-bg {
+    background-image: url(../IMG/patrick-gif-icon.gif);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: contain;
 }
 
 /* --------------- LOOSE --------------- */
@@ -311,7 +354,7 @@ tr, td, th {
 .burger-WIN {
     width:400px;
     margin-top:30px;
-    margin-left: 25vw;
+    margin-left: 50vw;
     animation: bounce 1s infinite;
 }
 
@@ -319,4 +362,56 @@ tr, td, th {
 	0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
 	40% {transform: translateY(-15px);}
     60% {transform: translateY(-15px);}
+}
+
+.form-win {
+    position: absolute;
+    left: 27vw;
+    bottom: 20vw;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border: thick double white;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.form-win .nickname {
+    border: none;
+    height:50px;
+    border-radius: 5px;
+    animation: nickname 0.6s infinite;
+}
+
+.form-win .send {
+    margin-top: 10px;
+    border-radius:5px;
+}
+
+@keyframes nickname { 
+  0% { }
+  30% { color:#6fc854; } 
+}
+
+/* --------------- PLAYER --------------- */
+
+.burger-play {
+    background-image: url(../IMG/burger-gif-icon.gif);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: contain;
+    height: 100px;
+    width: 100px;
+}
+
+.hungry-play {
+    background-image: url(../IMG/patrick-gif-icon.gif);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: contain;
+    height: 100px;
+    width: 100px;
 }

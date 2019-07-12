@@ -13,10 +13,15 @@ public class GameRepository {
     public static GameRepository getInstance() {
         if (instance == null) {
             instance = new GameRepository();
-            instance.burger = new Burger(1, 0);
-            instance.maze = new MazeRepository(instance.getBurger().getIdBurger());
+            instance.init();
         }
         return instance;
+    }
+
+    public void init() {
+        instance.burger = new Burger(1, 0);
+        instance.human = new Human((int)(Math.random()*256));
+        instance.maze = new MazeRepository(instance.getBurger().getIdPosition(), instance.getHuman().getIdPosition());
     }
 
     private GameRepository() {}

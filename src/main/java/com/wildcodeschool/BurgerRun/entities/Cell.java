@@ -4,20 +4,21 @@ public class Cell {
     private int id;
     private boolean burger;
     private boolean human;
+    private boolean steak;
     private boolean wallTop;
     private boolean wallBottom;
     private boolean wallLeft;
     private boolean wallRight;
 
-    public Cell(int id, boolean burger, boolean human, boolean wallTop, boolean wallBottom, boolean wallLeft,
-            boolean wallRight) {
+    public Cell(int id, boolean burger, boolean human, boolean steak, int wallTop, int wallBottom, int wallLeft, int wallRight) {
         this.id = id;
         this.burger = burger;
         this.human = human;
-        this.wallTop = wallTop;
-        this.wallBottom = wallBottom;
-        this.wallLeft = wallLeft;
-        this.wallRight = wallRight;
+        this.steak = steak;
+        this.wallTop = (wallTop == 1 ? true : false);
+        this.wallBottom = (wallBottom == 1 ? true : false);
+        this.wallLeft = (wallLeft == 1 ? true : false);
+        this.wallRight = (wallRight == 1 ? true : false);
     }
 
     public int getId() {
@@ -42,6 +43,14 @@ public class Cell {
 
     public void setHuman(boolean human) {
         this.human = human;
+    }
+
+    public boolean isSteak() {
+        return steak;
+    }
+
+    public void setSteak(boolean steak) {
+        this.steak = steak;
     }
 
     public boolean isWallTop() {
@@ -74,5 +83,5 @@ public class Cell {
 
     public void setWallRight(boolean wallRight) {
         this.wallRight = wallRight;
-    }  
+    }
 }
