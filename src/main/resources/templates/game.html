@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="../CSS/style.css">
 
 		<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+		<script src="../static/script.js"></script>
 
 		<title>Game</title>
 	</head>
@@ -53,6 +54,21 @@
 				</div>
 			</form>
 		</section>
-		
+		<script>
+			document.addEventListener("keydown", function(e) {
+				var f = document.createElement('form');
+				f.action='/game';
+				f.method='POST';
+
+				var i=document.createElement('input');
+				i.type='hidden';
+				i.name='key';
+				i.value=e.keyCode;
+				f.appendChild(i);
+
+				document.body.appendChild(f);
+				f.submit();
+			})
+		</script>
 	</body>
 </html>

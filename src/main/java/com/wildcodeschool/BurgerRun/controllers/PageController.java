@@ -88,17 +88,43 @@ class PageController {
     }
 
     @PostMapping("/game")
-    public String game(HttpSession session, @RequestParam(required = false) String move) {
-
+    public String game(HttpSession session, @RequestParam(required = false) String move, @RequestParam(required = false) Integer key) {
         boolean gameStatus = true;
         MazeRepository maze = game.getMaze();
         Burger burger = game.getBurger();
         Human human = game.getHuman();
         int positionBurger = burger.getIdPosition();
         int positionHuman = human.getIdPosition();
+        if (key != null) {
+            switch (key) {
+                case 37:
+                    move = "left";
+                    break;
+                case 81:
+                    move = "left";
+                    break;
+                case 48:
+                    move = "top";
+                    break;
+                case 90:
+                    move = "top";
+                    break;
+                case 39:
+                    move = "right";
+                    break;
+                case 68:
+                    move = "right";
+                    break;
+                case 40:
+                    move = "bottom";
+                    break;
+                case 83:
+                    move = "bottom";
+                    break;
+            }
+        }
 
         if(move != null) { 
-
             int currentOpponent = 2;
             if(!session.getAttribute("currentPlayer").equals(1)) {
                 currentOpponent = 1;
