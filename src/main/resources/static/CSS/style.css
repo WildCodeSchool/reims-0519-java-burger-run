@@ -297,6 +297,14 @@ tr, td, th {
     border-right:white 1px solid;
 }
 
+.steak-bg {
+    background-image: url(../IMG/steak_icon.png);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: contain;
+}
+
 /* --------------- LOOSE --------------- */
 
 .burger-KO {

@@ -36,11 +36,12 @@
 
 		<section class="labyrinth_section">
 			<div class="grid">
-				<div th:each="cell : ${maze}" th:classappend="${(cell.burger ? 'cell burger-bg' : 'cell') + (cell.wallTop ? ' wall-top' : '') + (cell.wallBottom ? ' wall-bottom' : '') + (cell.wallLeft ? ' wall-left' : '') + (cell.wallRight ? ' wall-right' : '')}"></div>
+				<div th:each="cell : ${maze}" th:classappend="${(cell.burger ? 'cell burger-bg' : 'cell') + (cell.wallTop ? ' wall-top' : '') + (cell.wallBottom ? ' wall-bottom' : '') + (cell.wallLeft ? ' wall-left' : '') + (cell.wallRight ? ' wall-right' : '') + (cell.steak ? ' steak-bg' : '')}"></div>
 			</div>
 		</section>
 
 		<section class="command_board">
+			<div th:text="${steakCount}"></div>
 			<form action="/game" method="POST">
 				<input type="submit" name="move" value="top" class="color-tomato">
 				<input type="submit" name="move" value="left" class="color-bread">

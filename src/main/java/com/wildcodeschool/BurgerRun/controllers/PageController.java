@@ -29,11 +29,13 @@ class PageController {
 
     @GetMapping("/win")
     public String win(Model model) {
+        game.init();
         return "win";
     }
 
     @GetMapping("/loose")
     public String loose(Model model) {
+        game.init();
         return "loose";
     }
 
@@ -45,6 +47,7 @@ class PageController {
 
         model.addAttribute("currentPlayer", session.getAttribute("currentPlayer").equals(1) ? "Burger" : "Human");
         model.addAttribute("maze", game.getMaze().getCells());
+        model.addAttribute("steakCount", game.getBurger().getLife());
 
         return "game";
     }
@@ -90,6 +93,12 @@ class PageController {
                 }
             }
 
+            positionBurger = burger.getIdBurger();
+            if (maze.getCells()[positionBurger].isSteak()) {
+                burger.setLife(burger.getLife() + 1);
+                maze.getCells()[positionBurger].setSteak(false);
+            }
+
             if(burger.getIdBurger() == maze.getIdExit() || burger.getLife() == 0) {
                 gameStatus = false;
             }
@@ -105,7 +114,7 @@ class PageController {
             if(burger.getLife() > 0) {
                 return "redirect:/win";
             }
-            return "redirect:/lose";
+            return "redirect:/loose";
         }
     }
 
