@@ -25,7 +25,7 @@ public class SteakScoreRepository {
                 DB_URL, DB_USER, DB_PASSWORD
             );
             PreparedStatement statement = connection.prepareStatement(
-                "SELECT * FROM score ORDER BY steak_score DESC LIMIT 5;"
+                "SELECT * FROM score ORDER BY steak_score DESC LIMIT 10;"
             );
             ResultSet resulSet = statement.executeQuery();
         ) {
