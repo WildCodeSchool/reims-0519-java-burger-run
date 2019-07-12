@@ -208,6 +208,12 @@ header ul li:nth-child(2):hover a {
     justify-content: center;
 }
 
+.rules_section input {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+
 /* --------------- RANKING --------------- */ 
 
 table {
