@@ -38,6 +38,7 @@ class PageController {
         if (session.getAttribute("gameStatus").equals(false)) {
             model.addAttribute("showInputNickname", true);
         }
+        session.setAttribute("gameStatus", true);
         game.init();
         return "win";
     }
