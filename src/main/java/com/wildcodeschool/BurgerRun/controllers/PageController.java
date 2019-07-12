@@ -20,7 +20,11 @@ class PageController {
     GameRepository game = GameRepository.getInstance();
 
     @GetMapping("/")
-    public String index(Model model) {
+    public String index(Model model, HttpSession session) {
+        if (session.getAttribute("gameStatus") == null) {
+            session.setAttribute("gameStatus", true);
+        }
+        session.setAttribute("nickname", "AAA");
         return "index";
     }
 
@@ -30,7 +34,10 @@ class PageController {
     }
 
     @GetMapping("/win")
-    public String win(Model model) {
+    public String win(Model model, HttpSession session) {
+        if (session.getAttribute("gameStatus").equals(false)) {
+            model.addAttribute("showInputNickname", true);
+        }
         game.init();
         return "win";
     }
@@ -49,7 +56,6 @@ class PageController {
         if (session.getAttribute("humanActionNumber") == null) {
             session.setAttribute("humanActionNumber", 1);
         }
-
         model.addAttribute("currentPlayer", session.getAttribute("currentPlayer").equals(1) ? "Burger" : "Human");
         model.addAttribute("maze", game.getMaze().getCells());
         model.addAttribute("steakCount", game.getBurger().getLife());
@@ -63,8 +69,23 @@ class PageController {
         return "ranking";
     }
 
+    @PostMapping("/ranking")
+    public String ranking(HttpSession session, @RequestParam(required=false) String nickname) {
+        session.setAttribute("nickname", "AAA");
+        if (nickname != null && !nickname.equals("")) {
+            session.setAttribute("nickname", nickname);
+        }
+        SteakScoreRepository.insert(
+            session.getAttribute("nickname").toString(),
+            (int)session.getAttribute("steak_score")
+        );
+        session.setAttribute("nickname", null);
+        session.setAttribute("steak_score", null);
+        return "redirect:/ranking";
+    }
+
     @PostMapping("/game")
-    public String game(Model model, HttpSession session, @RequestParam(required = false) String move) {
+    public String game(HttpSession session, @RequestParam(required = false) String move) {
 
         boolean gameStatus = true;
         MazeRepository maze = game.getMaze();
@@ -157,6 +178,8 @@ class PageController {
         } 
         else {
             if(burger.getLife() > 0) {
+                session.setAttribute("steak_score", burger.getLife());
+                session.setAttribute("gameStatus", false);
                 return "redirect:/win";
             }
             return "redirect:/loose";
