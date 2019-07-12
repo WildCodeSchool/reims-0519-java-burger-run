@@ -1,7 +1,5 @@
 package com.wildcodeschool.BurgerRun.repositories;
 
-import javax.servlet.http.HttpSession;
-
 import com.wildcodeschool.BurgerRun.entities.Cell;
 
 public class MazeRepository {
