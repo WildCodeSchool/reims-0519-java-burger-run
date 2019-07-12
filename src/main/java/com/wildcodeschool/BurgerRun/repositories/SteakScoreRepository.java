@@ -15,9 +15,9 @@ import org.springframework.web.server.ResponseStatusException;
 import com.wildcodeschool.BurgerRun.entities.ScoreBDD;
 
 public class SteakScoreRepository {
-    private final static String DB_URL = "";
-    private final static String DB_USER = "root";
-    private final static String DB_PASSWORD = "";
+    private final static String DB_URL = "jdbc:mysql://localhost:3306/burger_run?serverTimezone=GMT";
+    private final static String DB_USER = "bigmac";
+    private final static String DB_PASSWORD = "BurgerKing4Life!";
 
     public static List<ScoreBDD> selectAll() {
         try(

@@ -29,6 +29,7 @@
 		</header>
 
 		<section class="ranking_section">
+		<!--
 			<table>
 				<tr>
 					<td class="color-bread">ID</td>
@@ -40,6 +41,24 @@
 					<th class="color-salad">Clement</th>
 					<th class="color-tomato">1000</th>
 				</tr>
+				<tr>
+					<th th:each=""></th>
+				</tr>
+			</table>
+		-->
+			<table class="table table-fixed">
+				<thead>
+					<tr>
+						<th class="color-salad">Player</th>
+						<th class="color-tomato">Steaks</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="rank : ${rankings}">
+						<td class="color-salad" th:text="${rank.nickname}"></td>
+						<td class="color-tomato" th:text="${rank.steak_score}"></td>
+					</tr>
+				</tbody>
 			</table>
 		</section>
 

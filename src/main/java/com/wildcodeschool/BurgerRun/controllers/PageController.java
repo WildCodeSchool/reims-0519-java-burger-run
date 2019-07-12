@@ -6,6 +6,7 @@ import com.wildcodeschool.BurgerRun.entities.Burger;
 import com.wildcodeschool.BurgerRun.entities.Human;
 import com.wildcodeschool.BurgerRun.repositories.GameRepository;
 import com.wildcodeschool.BurgerRun.repositories.MazeRepository;
+import com.wildcodeschool.BurgerRun.repositories.SteakScoreRepository;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -58,6 +59,7 @@ class PageController {
 
     @GetMapping("/ranking")
     public String ranking(Model model) {
+        model.addAttribute("rankings", SteakScoreRepository.selectAll());
         return "ranking";
     }
 
