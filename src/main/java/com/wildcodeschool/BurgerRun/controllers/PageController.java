@@ -57,6 +57,8 @@ class PageController {
             session.setAttribute("humanActionNumber", 1);
         }
         model.addAttribute("currentPlayer", session.getAttribute("currentPlayer").equals(1) ? "Burger" : "Human");
+        model.addAttribute("burgerTurn", session.getAttribute("currentPlayer").equals(1) ? true : false);
+
         model.addAttribute("maze", game.getMaze().getCells());
         model.addAttribute("steakCount", game.getBurger().getLife());
 
@@ -102,44 +104,44 @@ class PageController {
             }
 
             if(session.getAttribute("currentPlayer").equals(1)) {
-                if(move.equals("left")) {
+                if(move.equals("←")) {
                     if (maze.canGoLeft(positionBurger)) {
                         burger.setIdPosition(maze.goLeftBurger(positionBurger));
                     }
                 }
-                else if(move.equals("right")) {
+                else if(move.equals("→")) {
                     if (maze.canGoRight(positionBurger)) {
                         burger.setIdPosition(maze.goRightBurger(positionBurger));
                     }
                 } 
-                else if(move.equals("bottom")) {
+                else if(move.equals("↓")) {
                     if (maze.canGoDown(positionBurger)) {
                         burger.setIdPosition(maze.goDownBurger(positionBurger));
                     }
                 }
-                else if(move.equals("top")) {
+                else if(move.equals("↑")) {
                     if (maze.canGoUp(positionBurger)) {
                         burger.setIdPosition(maze.goUpBurger(positionBurger));
                     }
                 }
             }
             else {
-                if(move.equals("left")) {
+                if(move.equals("←")) {
                     if (maze.canGoLeft(positionHuman)) {
                         human.setIdPosition(maze.goLeftHuman(positionHuman));
                     }
                 }
-                else if(move.equals("right")) {
+                else if(move.equals("→")) {
                     if (maze.canGoRight(positionHuman)) {
                         human.setIdPosition(maze.goRightHuman(positionHuman));
                     }
                 } 
-                else if(move.equals("bottom")) {
+                else if(move.equals("↓")) {
                     if (maze.canGoDown(positionHuman)) {
                         human.setIdPosition(maze.goDownHuman(positionHuman));
                     }
                 }
-                else if(move.equals("top")) {
+                else if(move.equals("↑")) {
                     if (maze.canGoUp(positionHuman)) {
                         human.setIdPosition(maze.goUpHuman(positionHuman));
                     }

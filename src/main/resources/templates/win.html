@@ -32,10 +32,10 @@
 			</nav>
 		</header>
 
-		<form th:if="${showInputNickname}" action="/ranking" method="POST">
+		<form th:if="${showInputNickname}" action="/ranking" method="POST" class="form-win">
 			<label for="nickname">Enter your name</label>
-			<input type="text" name="nickname" value="">
-			<input type="submit" Value="Send">
+			<input class="nickname" type="text" name="nickname" value="" style="text-align: center;">
+			<input class="send" type="submit" Value="Send">
 		</form>
 	</body>
 </html>
