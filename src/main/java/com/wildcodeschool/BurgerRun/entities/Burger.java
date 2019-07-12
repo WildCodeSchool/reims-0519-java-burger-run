@@ -1,8 +1,13 @@
 package com.wildcodeschool.BurgerRun.entities;
 
-public class Burger {
+public class Burger{
     private int life = 1;
-    private int idBurger;
+    private int idPosition;
+
+    public Burger(int life, int idPosition) {
+        this.life = life;
+        this.idPosition = idPosition;
+    }
 
     public int getLife() {
         return life;
@@ -12,16 +17,11 @@ public class Burger {
         this.life = life;
     }
 
-    public int getIdBurger() {
-        return idBurger;
+    public int getIdPosition() {
+        return idPosition;
     }
 
-    public void setIdBurger(int idBurger) {
-		this.idBurger = idBurger;
-	}
-
-    public Burger(int life, int idBurger) {
-		this.life = life;
-		this.idBurger = idBurger;
+    public void setIdPosition(int idPosition) {
+        this.idPosition = idPosition;
     }
 }

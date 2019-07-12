@@ -1,17 +1,17 @@
 package com.wildcodeschool.BurgerRun.entities;
 
 public class Human {
-    private int idHuman;
+    private int idPosition;
 
-    public int getIdHuman() {
-        return idHuman;
+    public Human(int idPosition) {
+        this.idPosition = idPosition;
     }
 
-    public void setIdHuman(int idHuman) {
-        this.idHuman = idHuman;
+    public int getIdPosition() {
+        return idPosition;
     }
 
-    public Human(int idHuman) {
-        this.idHuman = idHuman;
-    }    
+    public void setIdPosition(int idPosition) {
+        this.idPosition = idPosition;
+    }
 }

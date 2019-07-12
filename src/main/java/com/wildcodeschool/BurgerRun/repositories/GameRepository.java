@@ -20,7 +20,9 @@ public class GameRepository {
 
     public void init() {
         instance.burger = new Burger(1, 0);
-        instance.maze = new MazeRepository(instance.getBurger().getIdBurger());
+        instance.human = new Human((int)(Math.random()*256));
+        System.out.println(human.getIdPosition());
+        instance.maze = new MazeRepository(instance.getBurger().getIdPosition(), instance.getHuman().getIdPosition());
     }
 
     private GameRepository() {}

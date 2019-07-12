@@ -3,6 +3,7 @@ package com.wildcodeschool.BurgerRun.controllers;
 import javax.servlet.http.HttpSession;
 
 import com.wildcodeschool.BurgerRun.entities.Burger;
+import com.wildcodeschool.BurgerRun.entities.Human;
 import com.wildcodeschool.BurgerRun.repositories.GameRepository;
 import com.wildcodeschool.BurgerRun.repositories.MazeRepository;
 
@@ -44,6 +45,9 @@ class PageController {
         if(session.getAttribute("currentPlayer") == null) {
             session.setAttribute("currentPlayer", 1);
         }
+        if (session.getAttribute("humanActionNumber") == null) {
+            session.setAttribute("humanActionNumber", 1);
+        }
 
         model.addAttribute("currentPlayer", session.getAttribute("currentPlayer").equals(1) ? "Burger" : "Human");
         model.addAttribute("maze", game.getMaze().getCells());
@@ -63,7 +67,9 @@ class PageController {
         boolean gameStatus = true;
         MazeRepository maze = game.getMaze();
         Burger burger = game.getBurger();
-        int positionBurger = burger.getIdBurger();
+        Human human = game.getHuman();
+        int positionBurger = burger.getIdPosition();
+        int positionHuman = human.getIdPosition();
 
         if(move != null) { 
 
@@ -72,38 +78,75 @@ class PageController {
                 currentOpponent = 1;
             }
 
-            if(move.equals("left")) {
-                if (maze.canGoLeft(positionBurger)) {
-                    burger.setIdBurger(maze.goLeft(positionBurger));
+            if(session.getAttribute("currentPlayer").equals(1)) {
+                if(move.equals("left")) {
+                    if (maze.canGoLeft(positionBurger)) {
+                        burger.setIdPosition(maze.goLeftBurger(positionBurger));
+                    }
+                }
+                else if(move.equals("right")) {
+                    if (maze.canGoRight(positionBurger)) {
+                        burger.setIdPosition(maze.goRightBurger(positionBurger));
+                    }
+                } 
+                else if(move.equals("bottom")) {
+                    if (maze.canGoDown(positionBurger)) {
+                        burger.setIdPosition(maze.goDownBurger(positionBurger));
+                    }
+                }
+                else if(move.equals("top")) {
+                    if (maze.canGoUp(positionBurger)) {
+                        burger.setIdPosition(maze.goUpBurger(positionBurger));
+                    }
                 }
             }
-            else if(move.equals("right")) {
-                if (maze.canGoRight(positionBurger)) {
-                    burger.setIdBurger(maze.goRight(positionBurger));
+            else {
+                if(move.equals("left")) {
+                    if (maze.canGoLeft(positionHuman)) {
+                        human.setIdPosition(maze.goLeftHuman(positionHuman));
+                    }
                 }
-            } 
-            else if(move.equals("bottom")) {
-                if (maze.canGoDown(positionBurger)) {
-                    burger.setIdBurger(maze.goDown(positionBurger));
+                else if(move.equals("right")) {
+                    if (maze.canGoRight(positionHuman)) {
+                        human.setIdPosition(maze.goRightHuman(positionHuman));
+                    }
+                } 
+                else if(move.equals("bottom")) {
+                    if (maze.canGoDown(positionHuman)) {
+                        human.setIdPosition(maze.goDownHuman(positionHuman));
+                    }
                 }
-            }
-            else if(move.equals("top")) {
-                if (maze.canGoUp(positionBurger)) {
-                    burger.setIdBurger(maze.goUp(positionBurger));
+                else if(move.equals("top")) {
+                    if (maze.canGoUp(positionHuman)) {
+                        human.setIdPosition(maze.goUpHuman(positionHuman));
+                    }
                 }
             }
 
-            positionBurger = burger.getIdBurger();
-            if (maze.getCells()[positionBurger].isSteak()) {
+            positionBurger = burger.getIdPosition();
+            positionHuman = human.getIdPosition();
+            if (maze.getCells()[positionBurger].isSteak() && session.getAttribute("currentPlayer").equals(1)) {
                 burger.setLife(burger.getLife() + 1);
                 maze.getCells()[positionBurger].setSteak(false);
             }
+            if (positionBurger == positionHuman) {
+                burger.setLife(burger.getLife() - 1);
+                maze.getCells()[positionHuman].setHuman(false);
+                human.setIdPosition((int)(Math.random()*256));
+                maze.getCells()[human.getIdPosition()].setHuman(true);
+            }
 
-            if(burger.getIdBurger() == maze.getIdExit() || burger.getLife() == 0) {
+            if(positionBurger == maze.getIdExit() || burger.getLife() == 0) {
                 gameStatus = false;
             }
-             else {
-                session.setAttribute("currentPlayer", currentOpponent);
+            else {
+                if (session.getAttribute("humanActionNumber").equals(1) && session.getAttribute("currentPlayer").equals(2)) {
+                    session.setAttribute("humanActionNumber", 2);
+                }
+                else {
+                    session.setAttribute("currentPlayer", currentOpponent);
+                    session.setAttribute("humanActionNumber", 1);
+                }
             }
         }
 

@@ -266,14 +266,6 @@ tr, td, th {
    height: var(--cell-size);
 }
 
-.burger-bg {
-    background-image: url(../IMG/hamburger_icon.png);
-    background-repeat: no-repeat;
-    background-position-x: center;
-    background-position-y: center;
-    background-size: contain;
-}
-
 .labyrinth_section {
     width: auto;
     padding:0;
@@ -297,8 +289,24 @@ tr, td, th {
     border-right:white 1px solid;
 }
 
+.burger-bg {
+    background-image: url(../IMG/hamburger_icon.png);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: contain;
+}
+
 .steak-bg {
     background-image: url(../IMG/steak_icon.png);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: contain;
+}
+
+.hungry-man-bg {
+    background-image: url(../IMG/hungry-man.png);
     background-repeat: no-repeat;
     background-position-x: center;
     background-position-y: center;

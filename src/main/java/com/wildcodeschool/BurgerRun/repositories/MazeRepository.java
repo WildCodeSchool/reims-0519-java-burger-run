@@ -1,5 +1,7 @@
 package com.wildcodeschool.BurgerRun.repositories;
 
+import javax.servlet.http.HttpSession;
+
 import com.wildcodeschool.BurgerRun.entities.Cell;
 
 public class MazeRepository {
@@ -81,13 +83,14 @@ public class MazeRepository {
         1,0,0,1,0,0,0,1,1,1,0,0,1,0,0,1
     };
 
-    public MazeRepository(int idBurgerStart) {
+    public MazeRepository(int idBurgerStart, int idHumanStart) {
         this.cells = new Cell[size*size];
         for (int i = 0; i < size*size; i++) {
             boolean isSteak = (int)(Math.random()*100) > 90;
             this.cells[i] = new Cell(i, false, false, isSteak, topWalls[i], bottomWalls[i], leftWalls[i], rightWalls[i]);
         }
         this.cells[idBurgerStart].setBurger(true);
+        this.cells[idHumanStart].setHuman(true);
     }
 
     public boolean canGoUp(int id) {
@@ -106,27 +109,51 @@ public class MazeRepository {
         return (!cells[id].isWallRight() && (id%size < size-1));
     }
 
-    public int goUp(int id) {
+    public int goUpBurger(int id) {
         cells[id].setBurger(false);
         cells[id - size].setBurger(true);
         return id - size;
     }
 
-    public int goDown(int id) {
+    public int goDownBurger(int id) {
         cells[id].setBurger(false);
         cells[id + size].setBurger(true);
         return id + size;
     }
 
-    public int goRight(int id) {
+    public int goRightBurger(int id) {
         cells[id].setBurger(false);
         cells[id + 1].setBurger(true);
         return id + 1;
     }
 
-    public int goLeft(int id) {
+    public int goLeftBurger(int id) {
         cells[id].setBurger(false);
         cells[id - 1].setBurger(true);
+        return id - 1;
+    }
+
+    public int goUpHuman(int id) {
+        cells[id].setHuman(false);
+        cells[id - size].setHuman(true);
+        return id - size;
+    }
+
+    public int goDownHuman(int id) {
+        cells[id].setHuman(false);
+        cells[id + size].setHuman(true);
+        return id + size;
+    }
+
+    public int goRightHuman(int id) {
+        cells[id].setHuman(false);
+        cells[id + 1].setHuman(true);
+        return id + 1;
+    }
+
+    public int goLeftHuman(int id) {
+        cells[id].setHuman(false);
+        cells[id - 1].setHuman(true);
         return id - 1;
     }
 
