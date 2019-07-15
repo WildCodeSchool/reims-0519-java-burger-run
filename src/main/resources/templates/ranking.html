@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="EN">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" th:href="@{/CSS/style.css}" href="../static/CSS/style.css">
+
+		<title>Ranking</title>
+	</head>
+	<body>
+		<h1>Ranking</h1>
+
+		<header>
+			<nav class="main_menu">
+				<ul>
+					<li>
+						<a href="/">Home</a>
+					</li>
+					<li>
+						<a href="/game">Game</a>
+					</li>
+					<li>
+						<a href="/rules">Rules</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+
+
+		<div id="tableContainer" class="tableContainer">
+			<table>
+				<thead class="fixedHeader">
+					<tr>
+						<th width="50%" class="color-salad">Player</th>
+						<th width="50%" class="color-tomato">Steaks</th>
+					</tr>
+				</thead>
+				<tbody class="scrollContent">
+					<tr th:each="rank : ${rankings}">
+						<td class="color-salad" th:text="${rank.nickname}"></td>
+						<td class="color-tomato" th:text="${rank.steak_score}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</body>
+</html>

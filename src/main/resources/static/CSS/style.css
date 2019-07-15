@@ -1,0 +1,430 @@
+/* --------------- IMPORT FONT --------------- */
+
+@font-face {
+    font-family: 'Arcade Interlaced';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Arcade Interlaced'), url(../ARCADE_I.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'Arcade Normal';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Arcade Normal'), url(../ARCADE_N.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'Arcade Rounded';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Arcade Rounded'), url(../ARCADE_R.woff) format('woff');
+}
+
+/* --------------- COLOR BURGER --------------- */
+
+.color-salad {
+    color: #6fc854;
+}
+
+.color-bread {
+    color: #f6b501;
+}
+
+.color-tomato {
+    color: #fd2500;
+}
+
+.color-sesame {
+    color: #fff2c8;
+}
+
+.color-steak {
+    color: #b6673e;
+}
+
+.bg-salad {
+    background-color: #6fc854;
+}
+
+.bg-bread {
+    background-color: #f6b501;
+}
+
+.bg-tomato {
+    background-color: #fd2500;
+}
+
+.bg-sesame {
+    background-color: #fff2c8;
+}
+
+.bg-steak {
+    background-color: #b6673e;
+}
+
+/* --------------- GENERALE CONFIGURATION --------------- */
+
+body {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-color: black;
+    background-image: url(../IMG/general_bg.png);
+    background-size: cover;
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Arcade Rounded';
+    font-size: 10pt;
+}
+
+h1 {
+    font-size: 50pt;
+    margin-left: 25vw;
+    font-family: 'Arcade Normal';
+    color: #fff2c8;
+}
+
+ul {
+    list-style-type: none;
+}
+
+header ul li {
+    border: thick double white;
+    margin: 10px 0 10px 0;
+    height: 60px;
+    width: 122px;
+}
+
+header ul li a {
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px 0 10px;
+    font-weight: bolder;
+    font-family: 'Arcade Interlaced';
+}
+
+header ul li:hover {
+    background-image: url(../IMG/texture_burger.jpg);
+    background-size: contain;
+    transition: 1s;
+}
+
+header ul li:hover a {
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: 1s;
+    text-decoration: none;
+    color: white;
+}
+
+header ul li:nth-child(2) a {
+    animation: colorblink 0.6s infinite;
+}
+
+header ul li:nth-child(2):hover a {
+    animation: none;
+}
+
+@keyframes colorblink { 
+  0% { }
+  30% { color:#fd2500; } 
+}
+
+/* --------------- HOME --------------- */
+
+.home_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+}
+
+@keyframes animate {
+    0% {
+        margin-right: -2000px;
+    }
+    100% {
+        margin-right: 130%;
+    }
+}
+
+.home_container .logo {
+    width: 20vw;
+	animation: animate 3s linear infinite;
+}
+
+.main_title {
+    font-size: 10pt;
+    color: white;
+    margin-left: -10px;
+    margin-top: 20px;
+}
+
+.home_container header .home_nav {
+    width: 35vw;
+}
+
+.home_container header .home_nav ul {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    margin-left: -50px;
+}
+
+/* --------------- RULES --------------- */ 
+
+.main_menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 25vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rules_section, .ranking_section, .labyrinth_section {
+    border: thick double white;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 60%;
+    margin-left: 25vw;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.rules_section input {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+
+/* --------------- RANKING --------------- */ 
+
+tr, td, th {
+    border: 3px white double;
+    padding: 30px;
+}
+
+table {
+    display:block;
+    width:820px;
+    overflow:auto;
+    overflow-x:hidden;
+    height:300px;
+}
+
+tbody, thead tr {
+    display:table;
+    width:800px;
+    table-layout:fixed;
+    text-align:center;
+  }
+  .fixedHeader {
+    display:block;
+    width:400px;
+  }
+
+/* --------------- GAME --------------- */ 
+
+.game-title {
+    position: absolute;
+    top: 6vw;
+    right: 6.3vw;
+    margin: 0vw;
+    font-size: 30pt;
+}
+
+.command_board {
+    right: 3.5vw;
+    top: 25vh;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px double black;
+    padding: 20px 20px 30px 20px;
+    background-color: rgb(255, 255, 255, 0.9);
+    border-radius: 20px;
+}
+
+.command_board form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.command_board form input {
+    height:50px;
+    width:50px;
+    font-size:20pt;
+    border-radius: 5px;
+    margin: 5px;
+    color:white;
+    text-shadow: 1px 1px black;
+}
+
+.command_board form .three-button {
+    display: flex;
+}
+
+.command_board span {
+    font-size: 10pt;
+    margin: 5px 0 5px 0;
+}
+
+.command_board .steak_count span {
+    font-size: 16pt;
+}
+
+/* --------------- MAZE --------------- */ 
+
+.grid {
+   --cell-size: 35px;
+   display: grid;
+   grid-template-columns: repeat(16, var(--cell-size));
+   grid-template-rows: repeat(16, var(--cell-size));
+}
+
+.cell {
+   width: var(--cell-size);
+   height: var(--cell-size);
+}
+
+.labyrinth_section {
+    width: auto;
+    padding:0;
+    border: none;
+    margin-left: -2vw;
+    background-color: rgb(255, 255, 255, 0.9);
+}
+
+.wall-top {
+    border-top:black 1px solid;
+}
+
+.wall-bottom {
+    border-bottom: black 1px solid;
+}
+
+.wall-left {
+    border-left:black 1px solid;
+}
+
+.wall-right {
+    border-right:black 1px solid;
+}
+
+.burger-bg {
+    background-image: url(../IMG/burger-gif-icon.gif);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: contain;
+}
+
+.steak-bg {
+    background-image: url(../IMG/steak_icon.png);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: contain;
+}
+
+.hungry-man-bg {
+    background-image: url(../IMG/patrick-gif-icon.gif);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: contain;
+}
+/* --------------- LOOSE --------------- */
+
+.burger-KO {
+    width:400px;
+    margin-top:30px;
+    margin-left: 25vw;
+    transform: rotate(10deg);
+}
+
+/* --------------- WIN --------------- */
+
+.burger-WIN {
+    width:400px;
+    margin-top:30px;
+    margin-left: 50vw;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+	40% {transform: translateY(-15px);}
+    60% {transform: translateY(-15px);}
+}
+
+.form-win {
+    position: absolute;
+    left: 27vw;
+    bottom: 20vw;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border: thick double white;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.form-win .nickname {
+    border: none;
+    height:50px;
+    border-radius: 5px;
+    animation: nickname 0.6s infinite;
+}
+
+.form-win .send {
+    margin-top: 10px;
+    border-radius:5px;
+}
+
+@keyframes nickname { 
+  0% { }
+  30% { color:#6fc854; } 
+}
+
+/* --------------- PLAYER --------------- */
+
+.burger-play {
+    background-image: url(../IMG/burger-gif-icon.gif);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: contain;
+    height: 100px;
+    width: 100px;
+}
+
+.hungry-play {
+    background-image: url(../IMG/patrick-gif-icon.gif);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: contain;
+    height: 100px;
+    width: 100px;
+}

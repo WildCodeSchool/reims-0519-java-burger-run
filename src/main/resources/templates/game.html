@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="EN">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link rel="stylesheet" href="../CSS/style.css">
+
+		<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+
+		<title>Game</title>
+	</head>
+	<body>
+		<h1 class="game-title">Game</h1>
+
+		<header>
+			<nav class="main_menu">
+				<ul>
+					<li>
+						<a href="/">Home</a>
+					</li>
+					<li>
+						<a href="/ranking">Ranking</a>
+					</li>
+					<li>
+						<a href="/rules">Rules</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+
+		<section class="labyrinth_section">
+			<div class="grid">
+				<div th:each="cell : ${maze}" th:classappend="${(cell.burger ? 'cell burger-bg' : 'cell') + (cell.human ? ' hungry-man-bg' : '') + (cell.wallTop ? ' wall-top' : '') + (cell.wallBottom ? ' wall-bottom' : '') + (cell.wallLeft ? ' wall-left' : '') + (cell.wallRight ? ' wall-right' : '') + (cell.steak ? ' steak-bg' : '')}"></div>
+			</div>
+		</section>
+
+		<section class="command_board">
+			<p th:class="${burgerTurn ? 'burger-play' : 'hungry-play'}"></p>
+			<span th:class="${burgerTurn ? 'color-bread' : 'color-tomato'}">is playing now</span>
+			<div class="steak_count color-steak">
+				<img src="../IMG/steak_icon.png" alt="steak icon">
+				<span th:text="${steakCount}"></span>
+			</div>
+
+			<form action="/game" method="POST">
+				<input type="submit" name="move" value="↑" class="bg-steak">
+				<div class="three-button">
+					<input type="submit" name="move" value="←" class="bg-tomato">
+					<input type="submit" name="move" value="↓" class="bg-salad">
+					<input type="submit" name="move" value="→" class="bg-bread">
+				</div>
+			</form>
+		</section>
+		
+	</body>
+</html>
