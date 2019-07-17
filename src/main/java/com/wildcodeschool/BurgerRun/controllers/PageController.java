@@ -103,7 +103,7 @@ class PageController {
                 case 81:
                     move = "←";
                     break;
-                case 48:
+                case 38:
                     move = "↑";
                     break;
                 case 90:
