@@ -53,21 +53,29 @@
 					<input type="submit" name="move" value="→" class="bg-bread">
 				</div>
 			</form>
+			<div id="player" th:value="${currentPlayer}"></div>
 		</section>
 		<script>
 			document.addEventListener("keydown", function(e) {
-				var f = document.createElement('form');
-				f.action='/game';
-				f.method='POST';
+				const player = document.getElementById('player').getAttribute('value');
+				const burgerKeys = [37, 38, 39, 40];
+				const hungryKeys = [81, 38, 68, 83];
+				const key = e.keyCode;
+				console.log(player + ' ' + key);
+				if ((player === 'Burger' && burgerKeys.indexOf(key) != -1) || (player === 'Human' && hungryKeys.indexOf(key) != -1)) {
+					var f = document.createElement('form');
+					f.action='/game';
+					f.method='POST';
 
-				var i=document.createElement('input');
-				i.type='hidden';
-				i.name='key';
-				i.value=e.keyCode;
-				f.appendChild(i);
+					var i=document.createElement('input');
+					i.type='hidden';
+					i.name='key';
+					i.value=key;
+					f.appendChild(i);
 
-				document.body.appendChild(f);
-				f.submit();
+					document.body.appendChild(f);
+					f.submit();
+				}
 			})
 		</script>
 	</body>
